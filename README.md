@@ -8,10 +8,14 @@ This project trains a semantic segmentation network to identify road regions in 
 
 The following steps were used to build a network for semantic segmentation using a Fully Convolutional Network based off the paper [Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/pdf/1605.06211.pdf).
 
-1. Load a pre-trained VGG16 network.
-2. Adjust the network to an encoder-decoder style architecture using 1x1 convolution, transposed convolution and skip connections.
-3. Build the training pipeline.
-4. Train the network after settling a reasonable hyperparameter set
+1. Load a pre-trained VGG16 network. See the `load_vgg` function in `main.py` for the details.
+2. Adjust the network to an encoder-decoder style architecture using 1x1 convolution, transposed convolution and skip connections. The `layers` function accomplishes this.
+  * 1x1 convolutions are added to adjust the depth to correspond to the number of classes (2 in this case).
+  * transposed convolutions are added to progressively upsample activations back to the size of the original image.
+  * skip connections are added from shallow encoder layers to deeper decoder layers to improve spatial resolution.
+
+3. Build the training pipeline. An Adam optimizer is used with a cross-entropy loss. Regularization is added to the loss to avoid overfitting. The `optimize` and `train_nn` functions accomplish this.
+4. Train the network after settling a reasonable hyperparameter set. 50 epochs were trained using a batch size of 10. See the `run` function for more details.
 5. Evaluate the network on the test set.
 
 ## Results
@@ -27,17 +31,22 @@ Overall results are quite good, with the network able to reliably detect road pi
 The information below is from the original `README` provided by Udacity containing instructions for getting started.
 
 ### Setup
-##### GPU
+
+#### GPU
+
 `main.py` will check to make sure you are using GPU - if you don't have a GPU on your system, you can use AWS or another cloud computing platform.
-##### Frameworks and Packages
+
+#### Frameworks and Packages
+
 Make sure you have the following is installed:
- - [Python 3](https://www.python.org/)
- - [TensorFlow](https://www.tensorflow.org/)
- - [NumPy](http://www.numpy.org/)
- - [SciPy](https://www.scipy.org/)
+
+- [Python 3](https://www.python.org/)
+- [TensorFlow](https://www.tensorflow.org/)
+- [NumPy](http://www.numpy.org/)
+- [SciPy](https://www.scipy.org/)
 
 You may also need [Python Image Library (PIL)](https://pillow.readthedocs.io/) for SciPy's `imresize` function.
 
-##### Dataset
-Download the [Kitti Road dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) from [here](http://www.cvlibs.net/download.php?file=data_road.zip).  Extract the dataset in the `data` folder.  This will create the folder `data_road` with all the training a test images.
+#### Dataset
 
+Download the [Kitti Road dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) from [here](http://www.cvlibs.net/download.php?file=data_road.zip).  Extract the dataset in the `data` folder.  This will create the folder `data_road` with all the training a test images.
