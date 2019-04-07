@@ -24,7 +24,7 @@ Overall results are quite good, with the network able to reliably detect road pi
 
 ![Sample1](./runs/1554641250.0186214/um_000006.png)
 ![Sample2](./runs/1554641250.0186214/um_000085.png)
-![Sample3](./runs/1554641250.0186214/uu_000096.png)
+![Sample3](./runs/1554641250.0186214/uu_000014.png)
 
 ## Getting Started
 
