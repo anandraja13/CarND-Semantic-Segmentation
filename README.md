@@ -22,9 +22,9 @@ The following steps were used to build a network for semantic segmentation using
 
 Overall results are quite good, with the network able to reliably detect road pixels. There are areas of the road that are not correctly labeled as road pixels. This could be improved using more training data or using data augmentation.
 
-![Sample1](./runs/1554641250.0186214/um_000006.png)
-![Sample2](./runs/1554641250.0186214/um_000085.png)
-![Sample3](./runs/1554641250.0186214/uu_000014.png)
+![Sample1](./runs/1554646085.5674303/um_000006.png)
+![Sample2](./runs/1554646085.5674303/um_000085.png)
+![Sample3](./runs/1554646085.5674303/uu_000014.png)
 
 ## Getting Started
 
