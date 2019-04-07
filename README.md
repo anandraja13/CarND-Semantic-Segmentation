@@ -15,16 +15,16 @@ The following steps were used to build a network for semantic segmentation using
   * skip connections are added from shallow encoder layers to deeper decoder layers to improve spatial resolution.
 
 3. Build the training pipeline. An Adam optimizer is used with a cross-entropy loss. Regularization is added to the loss to avoid overfitting. The `optimize` and `train_nn` functions accomplish this.
-4. Train the network after settling a reasonable hyperparameter set. 50 epochs were trained using a batch size of 10. See the `run` function for more details.
+4. Train the network after settling a reasonable hyperparameter set. 25 epochs were trained using a batch size of 4. See the `run` function for more details.
 5. Evaluate the network on the test set.
 
 ## Results
 
 Overall results are quite good, with the network able to reliably detect road pixels. There are areas of the road that are not correctly labeled as road pixels. This could be improved using more training data or using data augmentation.
 
-![Sample1](./runs/1554591375.3818185/um_000006.png)
-![Sample2](./runs/1554591375.3818185/um_000085.png)
-![Sample3](./runs/1554591375.3818185/uu_000096.png)
+![Sample1](./runs/1554641250.0186214/um_000006.png)
+![Sample2](./runs/1554641250.0186214/um_000085.png)
+![Sample3](./runs/1554641250.0186214/uu_000096.png)
 
 ## Getting Started
 
